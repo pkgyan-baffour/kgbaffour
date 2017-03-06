@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<title>coloured stickman</title>
+		</head>
+		<body>
+
+		<script type="text/javascript">
+
+		var leftLegX = 550;
+		var rightLegX = 650;
+
+		var rightArmX = 600;
+		var leftArmX =650;
+
+		var leftLegDirection = 0;
+		var rightLegDirection = 2;
+
+		var rightArmDirection = 0;
+		var leftArmDirection = 2;
+
+		function drawRectangle(x, y, w, h, color) {
+
+			var myCanvas = document.getElementById("canvasWindow");
+			var context2d = myCanvas.getContext("2d");
+
+			context2d.fillStyle = color;
+			context2d.fillRect(x ,y, w, h);
+		}
+
+function drawLine(x,y,x2,y2,width,color){
+
+	var myCanvas = document.getElementById("canvasWindow");
+	var context2d = myCanvas.getContext("2d"); 
+
+
+	context2d.fillStyle = color;
+	context2d.moveTo(x,y);
+	context2d.beginPath();
+	context2d.lineTo(x2,y2);
+	context2d.lineTo(x2 + width, y2 + width);
+	context2d.lineTo(x + width, y + width);//leg lines//
+	context2d.lineTo(x,y);
+	context2d.closePath();
+	context2d.fill();
+}
+
+ function drawCircle(x,y,r, color){
+
+ 	var myCanvas = document.getElementById("canvasWindow");
+
+ 		var context2d = myCanvas.getContext("2d")
+
+ 		context2d.fillStyle = color;
+ 		context2d.beginPath();
+ 		context2d.arc(x,y,r,0,2 * Math.PI);
+ 		context2d.closePath();
+ 		context2d.fill();
+ }
+
+
+ function drawHead (){
+
+ 	drawCircle (600, 175, 25, "gold");
+ }
+
+function drawTorso () {
+
+
+	drawLine(600,200, 600,300, 5,"red");
+
+}
+
+//draw arms1//
+
+
+function drawleftArm(){
+	drawLine(600, 200,leftArmX,400, 5, "white")
+
+}
+
+function drawRighArm(){
+	drawline (600,300, rightArmX,400, 5,"white");
+}
+function drawLeftLeg(){
+	drawLine(600,300, leftLegX,400, 8,"blue");
+
+}
+
+function drawRightLeg(){
+	drawLine(600,300, rightLegX,400, 5,"lightblue");
+
+
+}
+function drawStickman(){
+
+	drawHead();
+	drawTorso();
+	drawLeftLeg();
+	drawRightLeg(); 
+	//drawleftArm();
+	//drawRighArm();
+}
+
+function drawWhite (){
+
+
+	drawRectangle (0,0,1200,600,"black");
+
+}
+
+function drawScene (){
+
+  drawWhite();
+  drawStickman();
+
+  if (leftLegX <= 550) {leftLegDirection = 0;}
+  if (leftLegX >= 650) {leftLegDirection = 1;}
+
+   if (rightLegX <= 550) {rightLegDirection = 0;}
+   if (rightLegX >= 650) {rightLegDirection = 1;}
+
+
+   switch (leftLegDirection) {
+
+   	case 0:
+   	leftLegX += 10;
+   	break;
+
+   	case 1:
+   	leftLegX -= 10;
+   	break;
+
+   	default:
+
+   	break;
+
+   }
+
+   switch (rightLegDirection){
+
+	case 0:
+   	rightLegX += 10;
+   	break;
+
+   	case 1:
+   	rightLegX -= 10;
+
+   	break;
+
+   	default:
+
+   	break;
+
+
+   }
+}
+//==================================
+/*function drawScene (){
+
+  drawWhite();
+  drawStickman();
+
+  if (leftArmX <= 550) {leftArmDirection = 0;}
+  if (leftArmX >= 650) {leftArmDirection = 1;}
+
+   if (rightArmX <= 550) {rightArmDirection = 0;}
+   if (rightArmX >= 650) {rightArmDirection = 1;}
+
+   switch (leftArmDirection) {
+
+   	case 0:
+   	leftArmX += 10;
+   	break;
+
+   	case 1:
+   	leftArmX -= 10;
+   	break;
+
+   	default:
+
+   	break;
+
+   }
+
+   switch (rightLegDirection){
+
+	case 0:
+   	rightArmX += 10;
+   	break;
+
+   	case 1:
+   	rightArmX -= 10;
+
+   	break;
+
+   	default:
+
+   	break;
+
+
+   }
+}*/
+
+setInterval(drawScene,100);
+
+		</script>
+
+		<canvas id="canvasWindow" width="1200" height="600"></canvas>
+		</body>
+		</html>		
