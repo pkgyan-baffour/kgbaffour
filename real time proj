@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>night and Day</title>
+</head>
+<body>
+		<canvas id="myCanvas" width="600" height="600" style="border:0px solid black;">
+
+		<script type="text/javascript">
+		var c = document.getElementById("myCanvas");
+		var ctx = c.getContext("2d");
+
+
+		ctx.fillStyle = "#00c5b8";
+		ctx.fillRect(0, 0, 600, 600);
+
+
+//draw line for lower part of cloud//
+	ctx.beginPath();
+	ctx.moveTo(610, 520);
+	ctx.lineTo(0, 520);
+	ctx.lineTo(0, 280);
+	ctx.lineTo(600, 280);
+	ctx.fillStyle = "#fafafa";
+	ctx.fill();
+
+		ctx.beginPath();
+		ctx.moveTo(520,600);
+		ctx.lineTo(360,600);
+		ctx.bezierCurveTo(120,80,-650,620,-750,600);
+		ctx.fillStyle = "#21b291";
+		ctx.fill();
+		//ctx.stroke();
+
+
+		ctx.beginPath();
+		ctx.moveTo(600,600);
+		ctx.lineTo(600,360);
+		//ctx.lineTo(300,280);
+		ctx.bezierCurveTo(360,350,200,600,60,600);
+		ctx.fillStyle = "#3692aa";
+		ctx.fill();
+		//ctx.stroke();
+
+		//trees1 blues//
+		ctx.beginPath();
+		ctx.moveTo(400, 330);
+		ctx.lineTo(380, 470);
+		ctx.lineTo(430, 470);
+		ctx.closePath();
+		ctx.fillStyle = "#63c1e9";
+		ctx.fill();
+		//ctx.stroke();
+
+		//trees2 blues//
+		ctx.beginPath();
+		ctx.moveTo(500, 330);
+		ctx.lineTo(480, 410);
+		ctx.lineTo(520, 410);
+		ctx.closePath();
+		ctx.fillStyle = "#53bcdf";
+		ctx.fill();
+		//ctx.stroke();
+
+
+		//trees3blues//
+		ctx.beginPath();
+		ctx.moveTo(570, 350);
+		ctx.lineTo(550, 430);
+		ctx.lineTo(590, 430);
+		ctx.closePath();
+		ctx.fillStyle = "#3cb4dc";
+		ctx.fill();
+		//ctx.stroke();
+
+		//trees2 green//
+		ctx.beginPath();
+		ctx.moveTo(76, 330);
+		ctx.lineTo(56, 410);
+		ctx.lineTo(96, 410);
+		ctx.closePath();
+		ctx.fillStyle = "#2f776e";
+		ctx.fill();
+		//ctx.stroke();
+
+		//trees1 green//
+		ctx.beginPath();
+		ctx.moveTo(100, 300);
+		ctx.lineTo(80, 470);
+		ctx.lineTo(130, 470);
+		ctx.closePath();
+		ctx.fillStyle = "#409b8f";
+		ctx.fill();
+		//ctx.stroke();
+
+		//trees3green//
+		ctx.beginPath();
+		ctx.moveTo(180, 350);
+		ctx.lineTo(160, 430);
+		ctx.lineTo(200, 430);
+		
+		ctx.fillStyle = "#43978b";
+		ctx.fill();
+		ctx.closePath();
+		//ctx.stroke();
+
+		//----sunny day-----------------
+	var x = 520,
+    y = 185,
+    // Radii of the white glow.
+    innerRadius = 10,
+    outerRadius = 60,
+    // Radius of the entire circle.
+    radius = 30;
+
+	var gradient = ctx.createRadialGradient(x, y, innerRadius, x, y, outerRadius);
+	gradient.addColorStop(0, 'white');
+	gradient.addColorStop(1, 'orange');
+
+	ctx.arc(x, y, radius, 0, 2 * Math.PI);
+
+	ctx.fillStyle = gradient;
+	ctx.fill();
+
+//----------------------cloud------
+
+
+
+
+	function head (){
+ 	ctx.beginPath();
+ 	ctx.arc(70, 280, 70, 0, Math.PI, true);
+ 	ctx.strokeStyle = 'black';
+ 	ctx.fillStyle = "#fafafa";
+ 	ctx.closePath();
+ 	ctx.fill();
+
+	};
+	head();
+
+ 	ctx.beginPath();
+ 	ctx.arc(184, 290, 50, 0, Math.PI, true);
+ 	ctx.strokeStyle = 'black';
+ 	ctx.fillStyle = "#fafafa";
+	ctx.fill();
+ 	
+ 	ctx.beginPath();
+ 	ctx.arc(250, 320, 50, 0, Math.PI, true);
+ 	ctx.strokeStyle = 'black';
+ 	ctx.fillStyle = "#fafafa";
+	ctx.fill();
+
+ 	ctx.beginPath();
+ 	ctx.arc(500, 330, 100, 0, Math.PI, true);
+ 	ctx.strokeStyle = 'black';
+ 	ctx.fillStyle = "#fafafa";
+	ctx.fill();
+
+	ctx.beginPath();
+ 	ctx.arc(350, 320, 80, 0, Math.PI, true);
+
+ 	ctx.strokeStyle = 'black';
+ 	ctx.fillStyle = "#fafafa";
+	ctx.fill();
+
+
+
+
+		</script>
+</body>
+</html>
